@@ -33,7 +33,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			new Main().run();
+			new Main().run(args[1]);
 		}
 		catch(Exception e) {
 			logger.error("Exception occurred: ", e);
@@ -51,8 +51,8 @@ public class Main {
 		xmlUpdater = new XMLConfigUpdater();
 	}
 	
-	public void run() throws ExecutionException, InterruptedException {
-		String configFile = "config.json";
+	public void run(String config) throws ExecutionException, InterruptedException {
+		String configFile = config;
 		logger.info("Attempting to load " + configFile);
 		config = GlobalConfig.loadConfig(configFile);
 		if(config == null) {
